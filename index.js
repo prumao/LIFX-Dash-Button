@@ -8,12 +8,7 @@ var lifxObj = require('lifx-api');
 var lifx = new lifxObj(LIFX_API_TOKEN);
 
 dash.on("detected", function (){
-	lifx.listLights('all', function(res) {
-		var jsonRes = JSON.parse(res);
-		var id = jsonRes[0].id; //using LIFX bulb ID
-
-		lifx.togglePower(id, function(res) {
-			console.log(res);
-		});
+	lifx.togglePower('all', function(res) {
+		console.log(res);
 	});
 });
